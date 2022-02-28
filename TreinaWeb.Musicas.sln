@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.31910.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreinaWeb.Musicas.Web", "TreinaWeb.Musicas.Web\TreinaWeb.Musicas.Web.csproj", "{667219FF-120F-4850-B354-008B8D325F67}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dominio", "Dominio", "{CB68234F-7A48-43C0-9D6E-9492F8D5DCE2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Acesso a Dados", "Acesso a Dados", "{F4ED0080-E9C0-42D3-9C82-A14F45E4984B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreinaWeb.Musicas.Dominio", "TreinaWeb.Musicas.Dominio\TreinaWeb.Musicas.Dominio.csproj", "{7DB78329-D419-477D-B079-4D83E7568416}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dominio", "Dominio", "{FAFC7CCD-992D-4655-B551-11BB923B7C32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreinaWeb.Musicas.Dominio", "TreinaWeb.Musicas.Dominio\TreinaWeb.Musicas.Dominio.csproj", "{92989749-F462-42AF-8DCA-9E14E1F2275A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreinaWeb.Musicas.AcessoDados.Entity", "TreinaWeb.Musicas.AcessoDados.Entity\TreinaWeb.Musicas.AcessoDados.Entity.csproj", "{9D5B4D37-B9BF-4A27-8381-B775611E1FAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +23,21 @@ Global
 		{667219FF-120F-4850-B354-008B8D325F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{667219FF-120F-4850-B354-008B8D325F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{667219FF-120F-4850-B354-008B8D325F67}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7DB78329-D419-477D-B079-4D83E7568416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DB78329-D419-477D-B079-4D83E7568416}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DB78329-D419-477D-B079-4D83E7568416}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DB78329-D419-477D-B079-4D83E7568416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92989749-F462-42AF-8DCA-9E14E1F2275A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92989749-F462-42AF-8DCA-9E14E1F2275A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92989749-F462-42AF-8DCA-9E14E1F2275A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92989749-F462-42AF-8DCA-9E14E1F2275A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D5B4D37-B9BF-4A27-8381-B775611E1FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D5B4D37-B9BF-4A27-8381-B775611E1FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D5B4D37-B9BF-4A27-8381-B775611E1FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D5B4D37-B9BF-4A27-8381-B775611E1FAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7DB78329-D419-477D-B079-4D83E7568416} = {CB68234F-7A48-43C0-9D6E-9492F8D5DCE2}
+		{92989749-F462-42AF-8DCA-9E14E1F2275A} = {FAFC7CCD-992D-4655-B551-11BB923B7C32}
+		{9D5B4D37-B9BF-4A27-8381-B775611E1FAE} = {F4ED0080-E9C0-42D3-9C82-A14F45E4984B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5AAB96A8-EEA4-428D-A798-6BB86805FAFE}
