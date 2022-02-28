@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D5B4D37-B9BF-4A27-8381-B775611E1FAE}</ProjectGuid>
+    <ProjectGuid>{4F8A7F8A-05F2-4F90-A98E-7F6AF75FAC34}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TreinaWeb.Musicas.AcessoDados.Entity</RootNamespace>
-    <AssemblyName>TreinaWeb.Musicas.AcessoDados.Entity</AssemblyName>
+    <RootNamespace>TreinaWeb.Comum.Entity</RootNamespace>
+    <AssemblyName>TreinaWeb.Comum.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,23 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\MusicasDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeConfiguration\AlbumTypeConfiguration.cs" />
+    <Compile Include="TreinaWebEntityAbstractConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TreinaWeb.Comum.Entity\TreinaWeb.Comum.Entity.csproj">
-      <Project>{4f8a7f8a-05f2-4f90-a98e-7f6af75fac34}</Project>
-      <Name>TreinaWeb.Comum.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TreinaWeb.Musicas.Dominio\TreinaWeb.Musicas.Dominio.csproj">
-      <Project>{92989749-f462-42af-8dca-9e14e1f2275a}</Project>
-      <Name>TreinaWeb.Musicas.Dominio</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
