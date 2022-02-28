@@ -12,5 +12,6 @@ namespace TreinaWeb.Musicas.Dominio
         public string Nome { get; set; }
         public int Ano { get; set; }
         public string Observações{ get; set; }
+        public string Email { get; set; }
     }
 }
