@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using TreinaWeb.Musicas.AcessoDados.Entity.Context;
 using TreinaWeb.Musicas.Dominio;
+using TreinaWeb.Musicas.Web.ViewModels.Album;
 
 namespace TreinaWeb.Musicas.Web.Controllers
 {
@@ -18,7 +20,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
         // GET: Albuns
         public ActionResult Index()
         {
-            return View(db.Albuns.ToList());
+            return View(Mapper.Map<List<Album>, List<AlbumIndexViewModel>>(db.Albuns.ToList()));
         }
 
         // GET: Albuns/Details/5
