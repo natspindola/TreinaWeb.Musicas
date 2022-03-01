@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TreinaWeb.Musicas.Dominio.Album>
+﻿@model List<TreinaWeb.Musicas.Web.ViewModels.Album.AlbumExibicaoViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayName("Nome")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ano)
+            @Html.DisplayName("Ano")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Observações)
+            @Html.DisplayName("Observações")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayName("Email")
         </th>
         <th></th>
     </tr>
