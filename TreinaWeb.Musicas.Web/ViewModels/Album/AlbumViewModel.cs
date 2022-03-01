@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using TreinaWeb.Musicas.Web.Annotatiions;
 
 namespace TreinaWeb.Musicas.Web.ViewModels.Album
 {
@@ -28,6 +29,7 @@ namespace TreinaWeb.Musicas.Web.ViewModels.Album
         [Display(Name = "Email de contato")]
         [Required(ErrorMessage = "O email é obrigatório")]
         [MaxLength(50, ErrorMessage = "O email não pode ter mais que 50 caractéres")]
+        [EmailTreinaWeb(ErrorMessage = "O email deve ser da TreinaWeb")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
     }
