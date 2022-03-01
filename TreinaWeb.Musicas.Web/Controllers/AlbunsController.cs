@@ -20,7 +20,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
         // GET: Albuns
         public ActionResult Index()
         {
-            return View(Mapper.Map<List<Album>, List<AlbumIndexViewModel>>(db.Albuns.ToList()));
+            return View(Mapper.Map<List<Album>, List<AlbumExibicaoViewModel>>(db.Albuns.ToList()));
         }
 
         // GET: Albuns/Details/5
@@ -35,7 +35,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(album);
+            return View(Mapper.Map<Album, AlbumExibicaoViewModel>(album));
         }
 
         // GET: Albuns/Create
@@ -106,7 +106,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(album);
+            return View(Mapper.Map<Album, AlbumExibicaoViewModel>(album));
         }
 
         // POST: Albuns/Delete/5

@@ -12,7 +12,7 @@ namespace TreinaWeb.Musicas.Web.AutoMapper
     {
         protected override void Configure()
         {
-            Mapper.CreateMap<Album, AlbumIndexViewModel>();
+            Mapper.CreateMap<Album, AlbumExibicaoViewModel>();
         }
     }
 }
