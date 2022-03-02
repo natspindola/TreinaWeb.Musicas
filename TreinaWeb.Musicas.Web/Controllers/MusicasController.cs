@@ -51,17 +51,15 @@ namespace TreinaWeb.Musicas.Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,IdAlbum")] Musica musica)
+        public ActionResult Create([Bind(Include = "Id,Nome,IdAlbum")] MusicaViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Musicas.Add(musica);
-                db.SaveChanges();
+                Musica musica = Mapper.Map<MusicaViewModel, Musica>(viewModel);
+                repositorioMusicas.Inserir(musica);
                 return RedirectToAction("Index");
             }
-
-            ViewBag.IdAlbum = new SelectList(db.Albums, "Id", "Nome", musica.IdAlbum);
-            return View(musica);
+            return View(viewModel);
         }
 
         // GET: Musicas/Edit/5
@@ -71,13 +69,12 @@ namespace TreinaWeb.Musicas.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Musica musica = db.Musicas.Find(id);
+            Musica musica = repositorioMusicas.SelecionarPorId(id.Value);
             if (musica == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdAlbum = new SelectList(db.Albums, "Id", "Nome", musica.IdAlbum);
-            return View(musica);
+            return View(Mapper.Map<Musica, MusicaViewModel>(musica));
         }
 
         // POST: Musicas/Edit/5
@@ -85,16 +82,15 @@ namespace TreinaWeb.Musicas.Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,IdAlbum")] Musica musica)
+        public ActionResult Edit([Bind(Include = "Id,Nome,IdAlbum")] MusicaViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(musica).State = EntityState.Modified;
-                db.SaveChanges();
+                Musica musica = Mapper.Map<MusicaViewModel, Musica>(viewModel);
+                repositorioMusicas.Alterar(musica);
                 return RedirectToAction("Index");
             }
-            ViewBag.IdAlbum = new SelectList(db.Albums, "Id", "Nome", musica.IdAlbum);
-            return View(musica);
+            return View(viewModel);
         }
 
         // GET: Musicas/Delete/5
@@ -117,9 +113,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Musica musica = db.Musicas.Find(id);
-            db.Musicas.Remove(musica);
-            db.SaveChanges();
+            repositorioMusicas.ExcuirPorId(id);
             return RedirectToAction("Index");
         }
     }
