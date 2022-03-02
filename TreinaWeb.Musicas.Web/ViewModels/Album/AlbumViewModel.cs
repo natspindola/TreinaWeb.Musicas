@@ -22,7 +22,6 @@ namespace TreinaWeb.Musicas.Web.ViewModels.Album
         public int Ano { get; set; }
 
         [Display(Name = "Observação do albúm")]
-        [Required(ErrorMessage = "Observações")]
         [MaxLength(1000, ErrorMessage = "Você excedeu a quantidade de caractéres para a observação, que é no máximo 1000.")]
         public string Observações { get; set; }
 

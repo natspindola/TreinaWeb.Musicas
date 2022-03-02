@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using TreinaWeb.Musicas.Dominio;
 using TreinaWeb.Musicas.AcessoDados.Entity.TypeConfiguration;
+using System.Collections;
 
 namespace TreinaWeb.Musicas.AcessoDados.Entity.Context
 {
@@ -13,6 +14,7 @@ namespace TreinaWeb.Musicas.AcessoDados.Entity.Context
     {
         public DbSet<Album> Albuns { get; set; }
         public DbSet<Musica> Musicas { get; set; }
+        public IEnumerable Albums { get; set; }
 
         public MusicasDbContext()
         {
