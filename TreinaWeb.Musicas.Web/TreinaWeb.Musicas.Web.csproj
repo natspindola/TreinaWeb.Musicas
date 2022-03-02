@@ -142,6 +142,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Album\AlbumExibicaoViewModel.cs" />
     <Compile Include="ViewModels\Album\AlbumViewModel.cs" />
+    <Compile Include="ViewModels\Musica\MusicaExibicaoViewModel.cs" />
+    <Compile Include="ViewModels\Musica\MusicaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
