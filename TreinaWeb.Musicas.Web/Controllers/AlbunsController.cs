@@ -24,9 +24,14 @@ namespace TreinaWeb.Musicas.Web.Controllers
         // GET: Albuns
         public ActionResult Index()
         {
-            var modelo = Mapper.Map<List<Album>, List<AlbumExibicaoViewModel>>(repositorioAlbuns.Selecionar());
+            return View(Mapper.Map<List<Album>, List<AlbumExibicaoViewModel>>(repositorioAlbuns.Selecionar()));
+        }
 
-            return View(modelo);
+        public ActionResult FiltrarPorNome(string pesquisa)
+        {
+            List<Album> albuns = repositorioAlbuns.Selecionar().Where(a => a.Nome.Contains(pesquisa)).ToList();
+            List<AlbumExibicaoViewModel> viewModels = Mapper.Map<List<Album>, List<AlbumExibicaoViewModel >> (albuns);
+            return Json(viewModels, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Albuns/Details/5
