@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using TreinaWeb.Musicas.AcessoDados.Entity.Context;
 using TreinaWeb.Musicas.Dominio;
 using TreinaWeb.Musicas.Repositorios.Entity;
+using TreinaWeb.Musicas.Web.ViewModels.Album;
 using TreinaWeb.Musicas.Web.ViewModels.Musica;
 using TreinaWeb.Repositorios.Comum;
 
@@ -18,6 +19,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
     public class MusicasController : Controller
     {
         private IRepositorioGenerico<Musica, long> repositorioMusicas = new MusicasRepositorio(new MusicasDbContext());
+        private IRepositorioGenerico<Album, int> repositorioAlbuns = new AlbunsRepositorio(new MusicasDbContext());
 
         // GET: Musicas
         public ActionResult Index()
@@ -43,6 +45,9 @@ namespace TreinaWeb.Musicas.Web.Controllers
         // GET: Musicas/Create
         public ActionResult Create()
         {
+            List<AlbumExibicaoViewModel> albuns = Mapper.Map<List<Album>, List<AlbumExibicaoViewModel>>(repositorioAlbuns.Selecionar());
+            SelectList dropDownAlbuns = new SelectList(albuns, "Id", "Nome");
+            ViewBag.DropDownAlbuns = dropDownAlbuns;
             return View();
         }
 
@@ -74,6 +79,9 @@ namespace TreinaWeb.Musicas.Web.Controllers
             {
                 return HttpNotFound();
             }
+            List<AlbumExibicaoViewModel> albuns = Mapper.Map<List<Album>, List<AlbumExibicaoViewModel>>(repositorioAlbuns.Selecionar());
+            SelectList dropDownAlbuns = new SelectList(albuns, "Id", "Nome");
+            ViewBag.DropDownAlbuns = dropDownAlbuns;
             return View(Mapper.Map<Musica, MusicaViewModel>(musica));
         }
 
