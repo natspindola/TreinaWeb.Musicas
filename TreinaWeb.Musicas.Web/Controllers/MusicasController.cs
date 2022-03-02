@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,18 +9,20 @@ using System.Web;
 using System.Web.Mvc;
 using TreinaWeb.Musicas.AcessoDados.Entity.Context;
 using TreinaWeb.Musicas.Dominio;
+using TreinaWeb.Musicas.Repositorios.Entity;
+using TreinaWeb.Musicas.Web.ViewModels.Musica;
+using TreinaWeb.Repositorios.Comum;
 
 namespace TreinaWeb.Musicas.Web.Controllers
 {
     public class MusicasController : Controller
     {
-        private MusicasDbContext db = new MusicasDbContext();
+        private IRepositorioGenerico<Musica, long> repositorioMusicas = new MusicasRepositorio(new MusicasDbContext());
 
         // GET: Musicas
         public ActionResult Index()
         {
-            var musicas = db.Musicas.Include(m => m.Album);
-            return View(musicas.ToList());
+            return View(Mapper.Map<List<Musica>, List<MusicaExibicaoViewModel>>(repositorioMusicas.Selecionar()));
         }
 
         // GET: Musicas/Details/5
@@ -29,18 +32,17 @@ namespace TreinaWeb.Musicas.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Musica musica = db.Musicas.Find(id);
+            Musica musica = repositorioMusicas.SelecionarPorId(id.Value);
             if (musica == null)
             {
                 return HttpNotFound();
             }
-            return View(musica);
+            return View(Mapper.Map<Musica, MusicaExibicaoViewModel>(musica));
         }
 
         // GET: Musicas/Create
         public ActionResult Create()
         {
-            ViewBag.IdAlbum = new SelectList(db.Albums, "Id", "Nome");
             return View();
         }
 
@@ -102,12 +104,12 @@ namespace TreinaWeb.Musicas.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Musica musica = db.Musicas.Find(id);
+            Musica musica = repositorioMusicas.SelecionarPorId(id.Value);
             if (musica == null)
             {
                 return HttpNotFound();
             }
-            return View(musica);
+            return View(Mapper.Map<Musica, MusicaExibicaoViewModel>(musica));
         }
 
         // POST: Musicas/Delete/5
@@ -119,15 +121,6 @@ namespace TreinaWeb.Musicas.Web.Controllers
             db.Musicas.Remove(musica);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
