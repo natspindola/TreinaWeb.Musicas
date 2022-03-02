@@ -9,6 +9,14 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div class="row">
+     <div class="col-md-10 col-sm-10 col-lg-10">
+         <input type="text" id="pesquisaAlbum" class="form-control" />
+     </div>
+    <div class="col-md-2 col-sm-2 col-lg-2">
+        <button id="btnPesquisarAlbum">Pesquisar...</button>
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -49,3 +57,23 @@
 }
 
 </table>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnPesquisarAlbum").click(function () {
+                var termoPesquisa = $("#pesquisaAlbum").val();
+                $.ajax({
+                    method: "GET",
+                    url: "/Albuns/FiltrarPorNome?" + termoPesquisa,
+                    success: function (data) {
+
+                    },
+                    error: function (data) {
+                        alert("Houve um erro na pesquisa.")
+                    }
+                });
+            });
+        });
+    </script>
+}
