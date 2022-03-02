@@ -22,6 +22,7 @@ namespace TreinaWeb.Musicas.AcessoDados.Entity.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AlbumTypeConfiguration());
+            modelBuilder.Configurations.Add(new MusicaTypeConfiguration());
         }
     }
 }

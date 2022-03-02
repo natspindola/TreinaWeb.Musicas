@@ -60,9 +60,14 @@
     <Compile Include="Migrations\202202281808521_AdicaoEmailAlbum.designer.cs">
       <DependentUpon>202202281808521_AdicaoEmailAlbum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203020016194_AdicaoMusica.cs" />
+    <Compile Include="Migrations\202203020016194_AdicaoMusica.designer.cs">
+      <DependentUpon>202203020016194_AdicaoMusica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeConfiguration\AlbumTypeConfiguration.cs" />
+    <Compile Include="TypeConfiguration\MusicaTypeConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -84,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202281808521_AdicaoEmailAlbum.resx">
       <DependentUpon>202202281808521_AdicaoEmailAlbum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203020016194_AdicaoMusica.resx">
+      <DependentUpon>202203020016194_AdicaoMusica.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
