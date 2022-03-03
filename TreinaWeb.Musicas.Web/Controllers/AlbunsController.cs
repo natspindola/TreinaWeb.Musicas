@@ -27,6 +27,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
             return View(Mapper.Map<List<Album>, List<AlbumExibicaoViewModel>>(repositorioAlbuns.Selecionar()));
         }
 
+        [HttpGet]
         public ActionResult FiltrarPorNome(string pesquisa)
         {
             List<Album> albuns = repositorioAlbuns.Selecionar().Where(a => a.Nome.Contains(pesquisa)).ToList();
