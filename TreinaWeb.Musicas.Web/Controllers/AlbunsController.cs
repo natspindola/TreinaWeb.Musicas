@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using TreinaWeb.Musicas.AcessoDados.Entity.Context;
 using TreinaWeb.Musicas.Dominio;
 using TreinaWeb.Musicas.Repositorios.Entity;
+using TreinaWeb.Musicas.Web.Filtros;
 using TreinaWeb.Musicas.Web.ViewModels.Album;
 using TreinaWeb.Repositorios.Comum;
 
