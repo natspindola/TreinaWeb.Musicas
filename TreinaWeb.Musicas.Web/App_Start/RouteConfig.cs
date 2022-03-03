@@ -17,7 +17,14 @@ namespace TreinaWeb.Musicas.Web
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                );
+
+
+            routes.MapRoute(
+                name: "PesquisaAlbuns",
+                url: "Albuns/PesquisaPorNome/{pesquisa}",
+                defaults: new { controller = "Albuns", action = "FiltrarPorNome", pesquisa = UrlParameter.Optional }
+                );
         }
     }
 }

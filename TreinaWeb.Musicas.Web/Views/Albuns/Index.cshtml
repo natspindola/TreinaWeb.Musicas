@@ -14,7 +14,7 @@
          <input type="text" id="pesquisaAlbum" class="form-control" />
      </div>
      <div class="col-md-2 col-lg-2 col-sm-2">
-         <input id="btnPesquisarAlbum" type="submit" value="Pesquisar..." />
+         <button id="btnPesquisarAlbum" class="btn btn-default">Pesquisar...</button>
      </div>
 </div>
 
@@ -70,10 +70,9 @@
 
             $("#btnPesquisarAlbum").click(function () {
                 var termoPesquisa = $("#pesquisaAlbum").val();
-                alert(termoPesquisa);
                 $.ajax({
                     method: "GET",
-                    url: "/Albuns/FiltrarPorNome?pesquisa=" + termoPesquisa,
+                    url: "/Albuns/PesquisaPorNome?pesquisa=" + termoPesquisa,
                     success: function (data) {
                         $("#tblAlbuns tbody > tr").remove();
                         $.each(data, function (i, album) {
@@ -96,7 +95,8 @@
                         alert("Houve um erro na pesquisa.")
                     }
                 });
-            });
-        });
+        
+    });
+});
     </script>
 }
