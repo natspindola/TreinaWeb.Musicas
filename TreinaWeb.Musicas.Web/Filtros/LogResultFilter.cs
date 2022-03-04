@@ -15,7 +15,7 @@ namespace TreinaWeb.Musicas.Web.Filtros
                                             DateTime.Now.ToString(),
                                             filterContext.RouteData.Values["Controller"].ToString(),
                                             filterContext.RouteData.Values["Action"].ToString());
-                                            filterContext.Result.ToString());
+                                            filterContext.Result.ToString();
             Debug.WriteLine(mensagem);
         }
 
