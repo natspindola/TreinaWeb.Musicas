@@ -51,6 +51,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
         }
 
         // GET: Albuns/Create
+        [Authorize(Roles = "ADMINISTRADOR")]
         public ActionResult Create()
         {
             return View();
@@ -61,6 +62,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMINISTRADOR")]
         public ActionResult Create([Bind(Include = "Id,Nome,Ano,Observações,Email")] AlbumViewModel viewModel)
         {
             if (ModelState.IsValid)
