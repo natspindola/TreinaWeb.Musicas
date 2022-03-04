@@ -11,6 +11,7 @@ using TreinaWeb.Musicas.Web.ViewModels.Usuario;
 
 namespace TreinaWeb.Musicas.Web.Controllers
 {
+    [AllowAnonymous]
     public class UsuariosController : Controller
     {
         public ActionResult CriarUsuario()
@@ -75,6 +76,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         public ActionResult Logoff()
         {
             var authManager = HttpContext.GetOwinContext().Authentication;

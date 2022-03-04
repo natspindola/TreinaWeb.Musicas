@@ -16,10 +16,9 @@ using TreinaWeb.Repositorios.Comum;
 
 namespace TreinaWeb.Musicas.Web.Controllers
 {
+    [Authorize]
     public class AlbunsController : Controller
     {
-
-
         private IRepositorioGenerico<Album, int> repositorioAlbuns = new AlbunsRepositorio(new MusicasDbContext());
 
         // GET: Albuns
