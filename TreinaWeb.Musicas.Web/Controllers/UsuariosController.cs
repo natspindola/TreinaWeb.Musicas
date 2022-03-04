@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TreinaWeb.Musicas.AcessoDados.Entity.Context;
+using TreinaWeb.Musicas.Web.Identity;
 using TreinaWeb.Musicas.Web.ViewModels.Usuario;
 
 namespace TreinaWeb.Musicas.Web.Controllers
@@ -23,7 +24,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userStore = new UserStore<IdentityUser>(new MusicasDbContext());
+                var userStore = new UserStore<IdentityUser>(new MusicasIdentityDbContext());
                 var userManage = new UserManager<IdentityUser>(userStore);
                 var identityUser = new IdentityUser
                 {
@@ -33,7 +34,7 @@ namespace TreinaWeb.Musicas.Web.Controllers
                 IdentityResult resultado = userManage.Create(identityUser, viewModel.Senha);
                 if (resultado.Succeeded)
                 {
-                    return View("Index", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {

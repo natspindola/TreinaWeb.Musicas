@@ -149,6 +149,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Identity\MusicasIdentityDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Album\AlbumExibicaoViewModel.cs" />
     <Compile Include="ViewModels\Album\AlbumViewModel.cs" />
