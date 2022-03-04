@@ -74,5 +74,12 @@ namespace TreinaWeb.Musicas.Web.Controllers
             }
             return View(viewModel);
         }
+
+        public ActionResult Logoff()
+        {
+            var authManager = HttpContext.GetOwinContext().Authentication;
+            authManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
