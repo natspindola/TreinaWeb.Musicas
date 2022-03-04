@@ -64,6 +64,13 @@ namespace TreinaWeb.Musicas.Web.Controllers
                     ModelState.AddModelError("erro_identity", "Usuário e/ou senha incorretos.");
                     return View(viewModel);
                 }
+                var authManager = HttpContext.GetOwinContext().Authentication;
+                var identity = userManager.CreateIdentity(usuario, DefaultAuthenticationTypes.ApplicationCookie);
+                authManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties
+                {
+                    IsPersistent = false
+                }, identity);
+                return RedirectToAction("Index", "Home");
             }
             return View(viewModel);
         }
